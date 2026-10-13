@@ -1,0 +1,12 @@
+{
+  "name": "maincrafts-task6",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Maincrafts Full Stack Internship - Task 6: connecting the catalog to a REST API",
+  "scripts": {
+    "api": "json-server --watch db.json --port 3000"
+  },
+  "devDependencies": {
+    "json-server": "0.17.4"
+  }
+}

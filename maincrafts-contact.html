@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Maincrafts Technology</title>
+  <meta name="description" content="Get in touch with Maincrafts Technology to start your next web, mobile, or cloud project." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="maincrafts-style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="maincrafts-home.html" class="brand">
+        <span class="brand-mark">M</span>
+        <span>
+          Maincrafts
+          <span class="brand-sub">Technology</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="maincrafts-home.html">Home</a>
+        <a href="maincrafts-about.html">About</a>
+        <a href="maincrafts-contact.html" class="active">Contact</a>
+        <a href="maincrafts-submissions.html">Submissions</a>
+        <a href="maincrafts-dashboard.html">Dashboard</a>
+        <a href="maincrafts-catalog.html">Catalog</a>
+        <a href="maincrafts-cart.html">Cart<span class="nav-cart-badge" id="cartBadge" style="display:none;">0</span></a>
+        <a href="maincrafts-contact.html" class="btn btn-primary nav-cta">Start a Project</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <div class="container">
+        <span class="eyebrow">SPEC.03 — Contact</span>
+        <h1>Tell us what you're building.</h1>
+        <p>Fill in the form and we'll reply within one business day with next steps.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <div class="contact-card bracket">
+            <div class="form-success" role="status" aria-live="polite">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Form submitted successfully! We'll get back to you within one business day.
+                <a href="maincrafts-submissions.html" style="color: var(--success); text-decoration: underline;">View submissions</a>
+              </span>
+            </div>
+
+            <span class="eyebrow">Send a Message</span>
+
+            <form name="contactForm" id="contactForm" onsubmit="return validateForm()" novalidate>
+              <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" />
+                <span class="field-error">Name is required.</span>
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" />
+                <span class="field-error">Enter a valid email address.</span>
+              </div>
+
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us a bit about your project"></textarea>
+                <span class="field-error">Message is required.</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+              <p class="form-note">// Name, email, and message are all required.</p>
+            </form>
+          </div>
+
+          <aside class="info-card">
+            <h3>Studio Details</h3>
+            <p>Prefer to reach out directly? Here's how to find us.</p>
+
+            <div class="info-row">
+              <div class="ico"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <span class="label">Email</span>
+                <span class="value">hr@maincrafts.com</span>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="ico"><i class="fa-solid fa-globe"></i></div>
+              <div>
+                <span class="label">Website</span>
+                <span class="value">www.maincrafts.com</span>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="ico"><i class="fa-solid fa-clock"></i></div>
+              <div>
+                <span class="label">Response Time</span>
+                <span class="value">Within 1 business day</span>
+              </div>
+            </div>
+
+            <div class="map-plate">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <span>MAP.PLACEHOLDER — Studio location embed goes here</span>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="maincrafts-home.html" class="brand">
+            <span class="brand-mark">M</span>
+            <span>Maincrafts<span class="brand-sub">Technology</span></span>
+          </a>
+          <p>A full-stack studio building web, mobile, and cloud products with the discipline of a craft.</p>
+        </div>
+
+        <div>
+          <h4>Navigate</h4>
+          <ul class="footer-links">
+            <li><a href="maincrafts-home.html">Home</a></li>
+            <li><a href="maincrafts-about.html">About</a></li>
+            <li><a href="maincrafts-contact.html">Contact</a></li>
+            <li><a href="maincrafts-submissions.html">Submissions</a></li>
+            <li><a href="maincrafts-dashboard.html">Dashboard</a></li>
+            <li><a href="maincrafts-catalog.html">Catalog</a></li>
+            <li><a href="maincrafts-cart.html">Cart</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Connect</h4>
+          <div class="social-row">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Maincrafts Technology. All rights reserved.</span>
+        <span>www.maincrafts.com · hr@maincrafts.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="maincrafts-script.js"></script>
+</body>
+</html>

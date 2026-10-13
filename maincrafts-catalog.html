@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Catalog — Maincrafts Technology</title>
+  <meta name="description" content="Live product catalog for Maincrafts Technology — products are fetched from a REST API. Search, filter, sort, add, delete, and add items to your cart." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="maincrafts-style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="maincrafts-home.html" class="brand">
+        <span class="brand-mark">M</span>
+        <span>
+          Maincrafts
+          <span class="brand-sub">Technology</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="maincrafts-home.html">Home</a>
+        <a href="maincrafts-about.html">About</a>
+        <a href="maincrafts-contact.html">Contact</a>
+        <a href="maincrafts-submissions.html">Submissions</a>
+        <a href="maincrafts-dashboard.html">Dashboard</a>
+        <a href="maincrafts-catalog.html" class="active">Catalog</a>
+        <a href="maincrafts-cart.html">Cart<span class="nav-cart-badge" id="cartBadge" style="display:none;">0</span></a>
+        <a href="maincrafts-contact.html" class="btn btn-primary nav-cta">Start a Project</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <div class="container">
+        <span class="eyebrow">SPEC.06 — Task 6</span>
+        <h1>Product Catalog</h1>
+        <p>Products are now loaded live from a REST API with fetch() and async/await. Search, filter, sort, add new products (POST), delete them (DELETE), and keep your cart in this browser's LocalStorage.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+
+        <details class="admin-panel bracket" id="adminPanel">
+          <summary>
+            <i class="fa-solid fa-circle-plus"></i> Add a product
+            <i class="fa-solid fa-chevron-down chev"></i>
+          </summary>
+          <form class="admin-form" id="addProductForm" novalidate>
+            <div class="admin-grid">
+              <div class="field">
+                <label for="apTitle">Product name</label>
+                <input type="text" id="apTitle" placeholder="e.g. Desk Lamp" autocomplete="off" />
+                <span class="field-error">Enter a product name.</span>
+              </div>
+
+              <div class="field">
+                <label for="apPrice">Price (₹)</label>
+                <input type="number" id="apPrice" min="0" step="0.01" placeholder="e.g. 1299" />
+                <span class="field-error">Enter a price greater than 0.</span>
+              </div>
+
+              <div class="field">
+                <label for="apCategory">Category</label>
+                <input type="text" id="apCategory" list="apCategoryList" placeholder="Pick or type a category" autocomplete="off" />
+                <datalist id="apCategoryList"></datalist>
+                <span class="field-error">Enter or pick a category.</span>
+              </div>
+
+              <div class="field">
+                <label for="apImage">Image URL (optional)</label>
+                <input type="url" id="apImage" placeholder="https://…" autocomplete="off" />
+                <span class="field-error">Enter a full image URL.</span>
+              </div>
+
+              <div class="field field--wide">
+                <label for="apDescription">Description (optional)</label>
+                <textarea id="apDescription" placeholder="A short description of the product"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="apSubmit">
+              <i class="fa-solid fa-plus"></i> Add Product
+            </button>
+          </form>
+        </details>
+
+        <div class="catalog-toolbar">
+          <div class="dash-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="catalogSearch" placeholder="Search products by name…" autocomplete="off" />
+          </div>
+
+          <div class="catalog-sort">
+            <label for="catalogSort">Sort by</label>
+            <select id="catalogSort">
+              <option value="default">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name-asc">Name: A → Z</option>
+              <option value="name-desc">Name: Z → A</option>
+            </select>
+          </div>
+
+          <div class="catalog-sort">
+            <label for="apiSource">Data source</label>
+            <select id="apiSource"></select>
+          </div>
+        </div>
+
+        <p class="source-note" id="sourceNote"></p>
+
+        <div class="filter-pills" id="categoryPills"></div>
+
+        <div class="spinner-wrap" id="spinner" role="status" aria-live="polite" style="display:none;">
+          <div class="spinner"></div>
+          <span id="spinnerText">Loading products…</span>
+        </div>
+
+        <div class="error-banner" id="errorMsg" role="alert" style="display:none;"></div>
+
+        <p class="catalog-meta" id="catalogMeta">Loading products…</p>
+
+        <div class="product-grid" id="productGrid"></div>
+
+        <div class="submissions-empty" id="catalogEmpty" style="display:none;">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <h3>No matching products.</h3>
+          <p>Try a different search term, category, or clear your filters.</p>
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Product detail modal -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal-box bracket">
+      <button type="button" class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="maincrafts-home.html" class="brand">
+            <span class="brand-mark">M</span>
+            <span>Maincrafts<span class="brand-sub">Technology</span></span>
+          </a>
+          <p>A full-stack studio building web, mobile, and cloud products with the discipline of a craft.</p>
+        </div>
+
+        <div>
+          <h4>Navigate</h4>
+          <ul class="footer-links">
+            <li><a href="maincrafts-home.html">Home</a></li>
+            <li><a href="maincrafts-about.html">About</a></li>
+            <li><a href="maincrafts-contact.html">Contact</a></li>
+            <li><a href="maincrafts-submissions.html">Submissions</a></li>
+            <li><a href="maincrafts-dashboard.html">Dashboard</a></li>
+            <li><a href="maincrafts-catalog.html">Catalog</a></li>
+            <li><a href="maincrafts-cart.html">Cart</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Connect</h4>
+          <div class="social-row">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Maincrafts Technology. All rights reserved.</span>
+        <span>www.maincrafts.com · hr@maincrafts.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="maincrafts-script.js"></script>
+  <script type="module" src="maincrafts-catalog.js"></script>
+</body>
+</html>

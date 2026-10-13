@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart — Maincrafts Technology</title>
+  <meta name="description" content="Review items in your cart and see the order total before checkout." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="maincrafts-style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="maincrafts-home.html" class="brand">
+        <span class="brand-mark">M</span>
+        <span>
+          Maincrafts
+          <span class="brand-sub">Technology</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="maincrafts-home.html">Home</a>
+        <a href="maincrafts-about.html">About</a>
+        <a href="maincrafts-contact.html">Contact</a>
+        <a href="maincrafts-submissions.html">Submissions</a>
+        <a href="maincrafts-dashboard.html">Dashboard</a>
+        <a href="maincrafts-catalog.html">Catalog</a>
+        <a href="maincrafts-cart.html" class="active">Cart<span class="nav-cart-badge" id="cartBadge" style="display:none;">0</span></a>
+        <a href="maincrafts-contact.html" class="btn btn-primary nav-cta">Start a Project</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <div class="container">
+        <span class="eyebrow">SPEC.07 — Your Cart</span>
+        <h1>Review your order.</h1>
+        <p>Items here are saved in this browser's LocalStorage. Update quantities or remove items before checking out.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+
+        <div class="cart-layout">
+          <div>
+            <div class="cart-list" id="cartList"></div>
+
+            <div class="submissions-empty" id="cartEmpty" style="display:none;">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <h3>Your cart is empty.</h3>
+              <p>Browse the catalog and add a few products to get started.</p>
+              <a href="maincrafts-catalog.html" class="btn btn-primary" style="margin-top: 8px;">
+                <i class="fa-solid fa-store"></i> Go to Catalog
+              </a>
+            </div>
+          </div>
+
+          <aside class="cart-summary bracket" id="cartSummary" style="display:none;">
+            <h3>Order Summary</h3>
+            <div class="cart-summary-row">
+              <span>Items</span>
+              <span id="cartItemCount">0</span>
+            </div>
+            <div class="cart-summary-row">
+              <span>Subtotal</span>
+              <span id="cartSubtotal">₹0</span>
+            </div>
+            <div class="cart-summary-row">
+              <span>Shipping</span>
+              <span>Free</span>
+            </div>
+            <div class="cart-summary-row is-total">
+              <span>Total</span>
+              <span id="cartTotal">₹0</span>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="alert('This is a demo checkout — no backend is connected yet.')">
+              <i class="fa-solid fa-lock"></i> Checkout
+            </button>
+          </aside>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="maincrafts-home.html" class="brand">
+            <span class="brand-mark">M</span>
+            <span>Maincrafts<span class="brand-sub">Technology</span></span>
+          </a>
+          <p>A full-stack studio building web, mobile, and cloud products with the discipline of a craft.</p>
+        </div>
+
+        <div>
+          <h4>Navigate</h4>
+          <ul class="footer-links">
+            <li><a href="maincrafts-home.html">Home</a></li>
+            <li><a href="maincrafts-about.html">About</a></li>
+            <li><a href="maincrafts-contact.html">Contact</a></li>
+            <li><a href="maincrafts-submissions.html">Submissions</a></li>
+            <li><a href="maincrafts-dashboard.html">Dashboard</a></li>
+            <li><a href="maincrafts-catalog.html">Catalog</a></li>
+            <li><a href="maincrafts-cart.html">Cart</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Connect</h4>
+          <div class="social-row">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Maincrafts Technology. All rights reserved.</span>
+        <span>www.maincrafts.com · hr@maincrafts.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="maincrafts-script.js"></script>
+  <script type="module" src="maincrafts-catalog.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Dashboard — Maincrafts Technology</title>
+  <meta name="description" content="A frontend-only Task Manager Dashboard built with HTML, CSS, and JavaScript — Task 4 of the Maincrafts Full Stack Internship." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="maincrafts-style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="maincrafts-home.html" class="brand">
+        <span class="brand-mark">M</span>
+        <span>
+          Maincrafts
+          <span class="brand-sub">Technology</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="maincrafts-home.html">Home</a>
+        <a href="maincrafts-about.html">About</a>
+        <a href="maincrafts-contact.html">Contact</a>
+        <a href="maincrafts-submissions.html">Submissions</a>
+        <a href="maincrafts-dashboard.html" class="active">Dashboard</a>
+        <a href="maincrafts-catalog.html">Catalog</a>
+        <a href="maincrafts-cart.html">Cart<span class="nav-cart-badge" id="cartBadge" style="display:none;">0</span></a>
+        <a href="maincrafts-contact.html" class="btn btn-primary nav-cta">Start a Project</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <div class="container">
+        <span class="eyebrow">SPEC.05 — Task 4</span>
+        <h1>Task Manager Dashboard</h1>
+        <p>A frontend-only CRUD dashboard — add, edit, complete, delete, and search tasks. Everything is saved to this browser's LocalStorage.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+
+        <div class="dash-panel bracket">
+          <span class="eyebrow">Add a Task</span>
+
+          <form id="taskForm" class="dash-add-row" onsubmit="return false;">
+            <input type="text" id="taskInput" placeholder="e.g. Finish assignment" autocomplete="off" />
+            <button type="submit" id="addTaskBtn" class="btn btn-primary">
+              <i class="fa-solid fa-plus"></i> Add Task
+            </button>
+          </form>
+          <span class="field-error" id="taskInputError">Task text can't be empty.</span>
+        </div>
+
+        <div class="dash-toolbar">
+          <div class="dash-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchBox" placeholder="Search tasks by name…" autocomplete="off" />
+          </div>
+
+          <div class="dash-filter">
+            <label for="filterSelect">Show</label>
+            <select id="filterSelect">
+              <option value="all">All Tasks</option>
+              <option value="pending">Pending Only</option>
+              <option value="completed">Completed Only</option>
+            </select>
+          </div>
+
+          <span class="dash-count"><strong id="taskCount">0</strong> total &middot; <strong id="taskCountDone">0</strong> done</span>
+        </div>
+
+        <ul class="task-list" id="taskList"></ul>
+
+        <div class="submissions-empty" id="taskEmpty" style="display:none;">
+          <i class="fa-solid fa-clipboard-check"></i>
+          <h3 id="taskEmptyTitle">No tasks yet.</h3>
+          <p id="taskEmptyText">Add your first task above to get started.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="maincrafts-home.html" class="brand">
+            <span class="brand-mark">M</span>
+            <span>Maincrafts<span class="brand-sub">Technology</span></span>
+          </a>
+          <p>A full-stack studio building web, mobile, and cloud products with the discipline of a craft.</p>
+        </div>
+
+        <div>
+          <h4>Navigate</h4>
+          <ul class="footer-links">
+            <li><a href="maincrafts-home.html">Home</a></li>
+            <li><a href="maincrafts-about.html">About</a></li>
+            <li><a href="maincrafts-contact.html">Contact</a></li>
+            <li><a href="maincrafts-submissions.html">Submissions</a></li>
+            <li><a href="maincrafts-dashboard.html">Dashboard</a></li>
+            <li><a href="maincrafts-catalog.html">Catalog</a></li>
+            <li><a href="maincrafts-cart.html">Cart</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Connect</h4>
+          <div class="social-row">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Maincrafts Technology. All rights reserved.</span>
+        <span>www.maincrafts.com · hr@maincrafts.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="maincrafts-script.js"></script>
+</body>
+</html>
